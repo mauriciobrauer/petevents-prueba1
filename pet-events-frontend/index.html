@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Events - Encuentra eventos increíbles para tu mascota</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#8B5CF6',
+                        'secondary': '#10B981',
+                        'accent': '#F59E0B',
+                        'gray-custom': '#6B7280',
+                        'light-gray': '#F9FAFB',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-light-gray font-inter">
+    <div id="root"></div>
+    
+    <!-- React y Babel para desarrollo -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <!-- Componentes -->
+    <script type="text/babel" src="./components/Header.jsx"></script>
+    <script type="text/babel" src="./components/EventTabs.jsx"></script>
+    <script type="text/babel" src="./components/EventCard.jsx"></script>
+    <script type="text/babel" src="./components/MyEventsSection.jsx"></script>
+    <script type="text/babel" src="./components/OtherEventsSection.jsx"></script>
+    <script type="text/babel" src="./App.jsx"></script>
+</body>
+</html>

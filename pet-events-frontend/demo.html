@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Events - Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#8B5CF6',
+                        'secondary': '#10B981',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-inter">
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-6">
+                <div class="flex items-center space-x-2">
+                    <span class="text-2xl">🐾</span>
+                    <h1 class="text-xl font-bold text-gray-900">Pet Events</h1>
+                </div>
+                <p class="text-sm text-gray-600 hidden md:block">
+                    ¡Encuentra eventos increíbles para tu mascota!
+                </p>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="text-sm text-gray-700 font-medium">Luis Torres</span>
+                <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                    <span class="text-white text-sm font-semibold">L</span>
+                </div>
+                <span class="text-sm text-gray-600">Mirij Mascota(s)</span>
+                <button class="text-sm text-gray-600 hover:text-gray-800">Salir</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-6 py-6">
+        <!-- Welcome Message -->
+        <div class="mb-6">
+            <p class="text-sm text-gray-600">Descubre actividades increíbles cerca de ti</p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="flex space-x-3 mb-6">
+            <button class="flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium bg-purple-600 text-white">
+                <span>❤️</span>
+                <span>Próximos</span>
+            </button>
+            <button class="flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium bg-white text-gray-600 border border-gray-200">
+                <span>📅</span>
+                <span>Pasados</span>
+            </button>
+        </div>
+
+        <!-- My Events Section -->
+        <section class="mb-8">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-lg font-semibold text-gray-900 flex items-center space-x-2">
+                    <span>🐾</span>
+                    <span>Mis Eventos</span>
+                </h2>
+                <button class="bg-purple-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-purple-700">
+                    + Crear Evento
+                </button>
+            </div>
+            <p class="text-sm text-gray-600 mb-6">Eventos donde tu mascota está registrada</p>
+            
+            <!-- Events Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                <!-- Event Card 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100">
+                    <div class="relative h-40 bg-gradient-to-br from-green-400 to-blue-500">
+                        <div class="absolute top-2 right-2 bg-purple-600 text-white px-2 py-1 rounded-md text-xs font-semibold">
+                            Inscrito
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-900 text-sm mb-2">Paseo grupal en el parque</h3>
+                        <p class="text-xs text-gray-600 mb-3 line-clamp-2">Un paseo relajante con nuestras mascotas por el parque central de la ciudad. Grande de la ciudad.</p>
+                        <div class="space-y-1 mb-3">
+                            <div class="flex items-center text-xs text-gray-600">
+                                <span class="mr-2">📅</span>
+                                <span>2024-10-15 - 09:00</span>
+                            </div>
+                            <div class="flex items-center text-xs text-gray-600">
+                                <span class="mr-2">📍</span>
+                                <span>Parque Central</span>
+                            </div>
+                            <div class="flex items-center text-xs text-gray-600">
+                                <span class="mr-2">👥</span>
+                                <span>12 asistentes</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-xs font-medium text-gray-700 mb-1">Mascotas asistentes:</p>
+                                <div class="flex items-center space-x-1">
+                                    <div class="w-5 h-5 bg-gray-100 rounded-full flex items-center justify-center">
+                                        <span class="text-xs">🐕</span>
+                                    </div>
+                                    <div class="w-5 h-5 bg-gray-100 rounded-full flex items-center justify-center">
+                                        <span class="text-xs">🐱</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="flex items-center space-x-1">
+                                    <span class="text-xs">⭐</span>
+                                    <span class="text-xs text-gray-600">5.0</span>
+                                </div>
+                                <p class="text-xs text-gray-500">(1 reseña)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Card 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100">
+                    <div class="relative h-40 bg-gradient-to-br from-pink-400 to-red-500">
+                        <div class="absolute top-2 right-2 bg-purple-600 text-white px-2 py-1 rounded-md text-xs font-semibold">
+                            Inscrito
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-900 text-sm mb-2">Adopción responsable</h3>
+                        <p class="text-xs text-gray-600 mb-3 line-clamp-2">Evento para conocer mascotas en busca de hogar y promover la adopción responsable.</p>
+                        <div class="space-y-1 mb-3">
+                            <div class="flex items-center text-xs text-gray-600">
+                                <span class="mr-2">📅</span>
+                                <span>2024-10-22 - 16:00</span>
+                            </div>
+                            <div class="flex items-center text-xs text-gray-600">
+                                <span class="mr-2">📍</span>
+                                <span>Refugio Los Amigos</span>
+                            </div>
+                            <div class="flex items-center text-xs text-gray-600">
+                                <span class="mr-2">👥</span>
+                                <span>35 asistentes</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-xs font-medium text-gray-700 mb-1">Mascotas asistentes:</p>
+                                <div class="flex items-center space-x-1">
+                                    <div class="w-5 h-5 bg-gray-100 rounded-full flex items-center justify-center">
+                                        <span class="text-xs">🐕</span>
+                                    </div>
+                                    <div class="w-5 h-5 bg-gray-100 rounded-full flex items-center justify-center">
+                                        <span class="text-xs">🐱</span>
+                                    </div>
+                                    <span class="text-xs text-gray-500">+2</span>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="flex items-center space-x-1">
+                                    <span class="text-xs">⭐</span>
+                                    <span class="text-xs text-gray-600">5.0</span>
+                                </div>
+                                <p class="text-xs text-gray-500">(1 reseña)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other Events Section -->
+        <section>
+            <h2 class="text-lg font-semibold text-gray-900 flex items-center space-x-2 mb-4">
+                <span>🏠</span>
+                <span>Otros Eventos</span>
+            </h2>
+            <p class="text-sm text-gray-600 mb-6">Eventos disponibles donde puedes registrar tu mascota</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                <!-- Event Card 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100">
+                    <div class="relative h-40 bg-gradient-to-br from-yellow-400 to-orange-500">
+                        <div class="absolute top-2 right-2 bg-gray-600 text-white px-2 py-1 rounded-md text-xs font-semibold">
+                            Privado
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-900 text-sm mb-2">Taller de adiestramiento</h3>
+                        <p class="text-xs text-gray-600 mb-3 line-clamp-2">Sesión práctica de entrenamiento básico para cachorros y perros jóvenes con instructores profesionales.</p>
+                        <div class="space-y-1 mb-3">
+                            <div class="flex items-center text-xs text-gray-600">
+                                <span class="mr-2">📅</span>
+                                <span>2024-10-18 - 16:00</span>
+                            </div>
+                            <div class="flex items-center text-xs text-gray-600">
+                                <span class="mr-2">📍</span>
+                                <span>Centro Canino Elite</span>
+                            </div>
+                            <div class="flex items-center text-xs text-gray-600">
+                                <span class="mr-2">👥</span>
+                                <span>8 asistentes</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-xs font-medium text-gray-700 mb-1">Mascotas asistentes:</p>
+                                <div class="flex items-center space-x-1">
+                                    <div class="w-5 h-5 bg-gray-100 rounded-full flex items-center justify-center">
+                                        <span class="text-xs">🐕</span>
+                                    </div>
+                                    <div class="w-5 h-5 bg-gray-100 rounded-full flex items-center justify-center">
+                                        <span class="text-xs">🐕</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="flex items-center space-x-1">
+                                    <span class="text-xs">⭐</span>
+                                    <span class="text-xs text-gray-600">5.0</span>
+                                </div>
+                                <p class="text-xs text-gray-500">(1 reseña)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Card 4 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100">
+                    <div class="relative h-40 bg-gradient-to-br from-purple-400 to-pink-500">
+                        <div class="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded-md text-xs font-semibold">
+                            Público
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-900 text-sm mb-2">Concurso de disfraces caninos</h3>
+                        <p class="text-xs text-gray-600 mb-3 line-clamp-2">¡Ven con tu perro disfrazado y compite por increíbles premios! Diversión garantizada para toda la familia.</p>
+                        <div class="space-y-1 mb-3">
+                            <div class="flex items-center text-xs text-gray-600">
+                                <span class="mr-2">📅</span>
+                                <span>2024-10-31 - 16:00</span>
+                            </div>
+                            <div class="flex items-center text-xs text-gray-600">
+                                <span class="mr-2">📍</span>
+                                <span>Plaza de la Mascota</span>
+                            </div>
+                            <div class="flex items-center text-xs text-gray-600">
+                                <span class="mr-2">👥</span>
+                                <span>23 asistentes</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-xs font-medium text-gray-700 mb-1">Mascotas asistentes:</p>
+                                <div class="flex items-center space-x-1">
+                                    <div class="w-5 h-5 bg-gray-100 rounded-full flex items-center justify-center">
+                                        <span class="text-xs">🐕</span>
+                                    </div>
+                                    <div class="w-5 h-5 bg-gray-100 rounded-full flex items-center justify-center">
+                                        <span class="text-xs">🐕</span>
+                                    </div>
+                                    <span class="text-xs text-gray-500">+1</span>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="flex items-center space-x-1">
+                                    <span class="text-xs">⭐</span>
+                                    <span class="text-xs text-gray-600">5.0</span>
+                                </div>
+                                <p class="text-xs text-gray-500">(1 reseña)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

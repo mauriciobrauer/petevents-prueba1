@@ -132,22 +132,22 @@ export default function Home() {
   const EventCard = ({ event, isMyEvent = false, petInfo = null }) => (
     <div style={{
       backgroundColor: 'white',
-      borderRadius: '12px',
+      borderRadius: '8px',
       overflow: 'hidden',
-      boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+      boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
       marginBottom: '1rem',
       position: 'relative'
     }}>
       {/* Event Type Badge */}
       <div style={{
         position: 'absolute',
-        top: '12px',
-        right: '12px',
+        top: '8px',
+        right: '8px',
         backgroundColor: isMyEvent ? '#8B5CF6' : '#10B981',
         color: 'white',
-        padding: '4px 8px',
-        borderRadius: '12px',
-        fontSize: '0.75rem',
+        padding: '2px 6px',
+        borderRadius: '8px',
+        fontSize: '0.7rem',
         fontWeight: 'bold',
         zIndex: 1
       }}>
@@ -156,7 +156,7 @@ export default function Home() {
 
       {/* Event Image */}
       {event.foto_portada && (
-        <div style={{ position: 'relative', height: '180px' }}>
+        <div style={{ position: 'relative', height: '140px' }}>
           <img
             src={event.foto_portada}
             alt={event.titulo}
@@ -169,58 +169,68 @@ export default function Home() {
         </div>
       )}
 
-      <div style={{ padding: '1rem' }}>
+      <div style={{ padding: '0.75rem' }}>
         {/* Event Title */}
         <h3 style={{ 
           margin: '0 0 0.5rem 0', 
-          fontSize: '1.1rem',
+          fontSize: '0.95rem',
           fontWeight: 'bold',
-          color: '#1f2937'
+          color: '#333'
         }}>
           {event.titulo}
         </h3>
 
         {/* Event Description */}
         <p style={{ 
-          color: '#6b7280', 
-          fontSize: '0.9rem',
-          margin: '0 0 1rem 0',
-          lineHeight: '1.4'
+          color: '#666', 
+          fontSize: '0.8rem',
+          margin: '0 0 0.75rem 0',
+          lineHeight: '1.3',
+          display: '-webkit-box',
+          WebkitLineClamp: 2,
+          WebkitBoxOrient: 'vertical',
+          overflow: 'hidden'
         }}>
           {event.descripcion}
         </p>
 
         {/* Event Details */}
-        <div style={{ marginBottom: '1rem' }}>
+        <div style={{ marginBottom: '0.75rem' }}>
           <div style={{ 
             display: 'flex', 
             alignItems: 'center', 
-            marginBottom: '0.25rem',
-            fontSize: '0.85rem',
-            color: '#374151'
+            marginBottom: '0.2rem',
+            fontSize: '0.75rem',
+            color: '#666'
           }}>
-            <span style={{ marginRight: '0.5rem' }}>📅</span>
+            <span style={{ marginRight: '0.4rem' }}>📅</span>
             <span>{formatDate(event.fecha_inicio)} - {formatTime(event.fecha_inicio)}</span>
           </div>
           
           <div style={{ 
             display: 'flex', 
             alignItems: 'center', 
-            marginBottom: '0.25rem',
-            fontSize: '0.85rem',
-            color: '#374151'
+            marginBottom: '0.2rem',
+            fontSize: '0.75rem',
+            color: '#666'
           }}>
-            <span style={{ marginRight: '0.5rem' }}>📍</span>
-            <span>{event.direccion_completa}</span>
+            <span style={{ marginRight: '0.4rem' }}>📍</span>
+            <span style={{ 
+              overflow: 'hidden', 
+              textOverflow: 'ellipsis', 
+              whiteSpace: 'nowrap' 
+            }}>
+              {event.direccion_completa}
+            </span>
           </div>
 
           <div style={{ 
             display: 'flex', 
             alignItems: 'center', 
-            fontSize: '0.85rem',
-            color: '#374151'
+            fontSize: '0.75rem',
+            color: '#666'
           }}>
-            <span style={{ marginRight: '0.5rem' }}>👥</span>
+            <span style={{ marginRight: '0.4rem' }}>👥</span>
             <span>{event.numero_mascotas_inscritas} asistentes</span>
           </div>
         </div>
@@ -230,43 +240,43 @@ export default function Home() {
           display: 'flex', 
           alignItems: 'center', 
           justifyContent: 'space-between',
-          marginTop: '1rem'
+          marginTop: '0.75rem'
         }}>
-          <div style={{ fontSize: '0.8rem', color: '#6b7280' }}>
+          <div style={{ fontSize: '0.7rem', color: '#666' }}>
             <strong>Mascotas asistentes:</strong>
-            <div style={{ display: 'flex', alignItems: 'center', marginTop: '0.25rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', marginTop: '0.2rem' }}>
               {/* Mock attendee avatars */}
               <div style={{
-                width: '24px',
-                height: '24px',
+                width: '20px',
+                height: '20px',
                 borderRadius: '50%',
-                backgroundColor: '#f3f4f6',
-                marginRight: '0.25rem',
+                backgroundColor: '#f0f0f0',
+                marginRight: '0.2rem',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '0.7rem'
+                fontSize: '0.6rem'
               }}>🐕</div>
               <div style={{
-                width: '24px',
-                height: '24px',
+                width: '20px',
+                height: '20px',
                 borderRadius: '50%',
-                backgroundColor: '#f3f4f6',
-                marginRight: '0.25rem',
+                backgroundColor: '#f0f0f0',
+                marginRight: '0.2rem',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '0.7rem'
+                fontSize: '0.6rem'
               }}>🐱</div>
               {event.numero_mascotas_inscritas > 2 && (
-                <span style={{ fontSize: '0.75rem', color: '#9ca3af' }}>
+                <span style={{ fontSize: '0.7rem', color: '#999' }}>
                   +{event.numero_mascotas_inscritas - 2}
                 </span>
               )}
             </div>
           </div>
 
-          <div style={{ fontSize: '0.75rem', color: '#9ca3af' }}>
+          <div style={{ fontSize: '0.7rem', color: '#999' }}>
             ⭐ {(Math.random() * 2 + 3).toFixed(1)} ({Math.floor(Math.random() * 10 + 1)} reseña{Math.floor(Math.random() * 10 + 1) !== 1 ? 's' : ''})
           </div>
         </div>
@@ -349,50 +359,52 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      <div style={{ backgroundColor: '#f9fafb', minHeight: '100vh' }}>
+      <div style={{ backgroundColor: '#f8f9fa', minHeight: '100vh' }}>
         {/* Header */}
         <div style={{
           backgroundColor: 'white',
           padding: '1rem 2rem',
-          borderBottom: '1px solid #e5e7eb',
+          borderBottom: '1px solid #e9ecef',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center'
         }}>
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <Link href="/" style={{
-              color: '#1f2937',
+              color: '#333',
               textDecoration: 'none',
-              fontSize: '1.5rem',
+              fontSize: '1.4rem',
               fontWeight: 'bold',
               marginRight: '2rem'
             }}>
               🐾 Pet Events
             </Link>
-            <p style={{ color: '#6b7280', fontSize: '0.9rem' }}>
+            <p style={{ color: '#666', fontSize: '0.9rem' }}>
               ¡Encuentra eventos increíbles para tu mascota!
             </p>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <span style={{ fontSize: '0.9rem', color: '#6b7280' }}>
-              {userProfile?.nombre || user?.email}
+            <span style={{ fontSize: '0.9rem', color: '#333' }}>
+              {userProfile?.nombre || 'Luis Torres'}
             </span>
             <div style={{
               width: '32px',
               height: '32px',
               borderRadius: '50%',
-              backgroundColor: '#8B5CF6',
+              backgroundColor: '#10B981',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               color: 'white',
-              fontWeight: 'bold'
+              fontWeight: 'bold',
+              fontSize: '0.8rem'
             }}>
-              {userProfile?.nombre ? userProfile.nombre.charAt(0).toUpperCase() : 'U'}
+              {userProfile?.nombre ? userProfile.nombre.charAt(0).toUpperCase() : 'L'}
             </div>
+            <span style={{ fontSize: '0.9rem', color: '#666' }}>Mirij Mascota(s)</span>
             <Link href="/auth/login" style={{
-              color: '#6b7280',
+              color: '#666',
               textDecoration: 'none',
               fontSize: '0.9rem'
             }}>
@@ -401,10 +413,10 @@ export default function Home() {
           </div>
         </div>
 
-        <div style={{ padding: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
+        <div style={{ padding: '1.5rem 2rem', maxWidth: '1200px', margin: '0 auto' }}>
           {/* Welcome Message */}
-          <div style={{ marginBottom: '2rem' }}>
-            <p style={{ color: '#6b7280', fontSize: '0.9rem' }}>
+          <div style={{ marginBottom: '1.5rem' }}>
+            <p style={{ color: '#666', fontSize: '0.9rem' }}>
               Descubre actividades increíbles cerca de ti
             </p>
           </div>
@@ -419,13 +431,16 @@ export default function Home() {
               onClick={() => setActiveFilter('proximos')}
               style={{
                 backgroundColor: activeFilter === 'proximos' ? '#8B5CF6' : 'white',
-                color: activeFilter === 'proximos' ? 'white' : '#6b7280',
-                border: '1px solid #e5e7eb',
+                color: activeFilter === 'proximos' ? 'white' : '#666',
+                border: '1px solid #ddd',
                 padding: '0.5rem 1rem',
                 borderRadius: '20px',
                 cursor: 'pointer',
-                fontSize: '0.9rem',
-                fontWeight: activeFilter === 'proximos' ? 'bold' : 'normal'
+                fontSize: '0.85rem',
+                fontWeight: 'normal',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.25rem'
               }}
             >
               ❤️ Próximos
@@ -433,60 +448,67 @@ export default function Home() {
             <button
               onClick={() => setActiveFilter('pasados')}
               style={{
-                backgroundColor: activeFilter === 'pasados' ? '#6b7280' : 'white',
-                color: activeFilter === 'pasados' ? 'white' : '#6b7280',
-                border: '1px solid #e5e7eb',
+                backgroundColor: activeFilter === 'pasados' ? '#666' : 'white',
+                color: activeFilter === 'pasados' ? 'white' : '#666',
+                border: '1px solid #ddd',
                 padding: '0.5rem 1rem',
                 borderRadius: '20px',
                 cursor: 'pointer',
-                fontSize: '0.9rem',
-                fontWeight: activeFilter === 'pasados' ? 'bold' : 'normal'
+                fontSize: '0.85rem',
+                fontWeight: 'normal',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.25rem'
               }}
             >
               📅 Pasados
             </button>
           </div>
 
-          <div style={{ display: 'flex', gap: '2rem' }}>
-            {/* Left Column - My Events */}
-            <div style={{ flex: 1 }}>
-              <div style={{
-                display: 'flex', 
-                justifyContent: 'space-between', 
-                alignItems: 'center', 
-                marginBottom: '1rem' 
+          {/* Mis Eventos Section */}
+          <div style={{ marginBottom: '3rem' }}>
+            <div style={{ 
+              display: 'flex', 
+              justifyContent: 'space-between', 
+              alignItems: 'center', 
+              marginBottom: '1rem' 
+            }}>
+              <h2 style={{ 
+                fontSize: '1.1rem', 
+                fontWeight: 'bold', 
+                color: '#333',
+                margin: 0
               }}>
-                <h2 style={{ 
-                  fontSize: '1.2rem', 
-                  fontWeight: 'bold', 
-                  color: '#1f2937',
-                  margin: 0
-                }}>
-                  🐾 Mis Eventos
-                </h2>
-                <Link href="/events/create" style={{
-                  backgroundColor: '#8B5CF6',
-                      color: 'white',
-                      padding: '0.5rem 1rem',
-                  borderRadius: '8px',
-                      textDecoration: 'none',
-                  fontSize: '0.85rem',
-                  fontWeight: 'bold'
-                    }}>
-                  + Crear Evento
-                    </Link>
-              </div>
-
-              <p style={{ 
-                color: '#6b7280', 
-                fontSize: '0.85rem', 
-                marginBottom: '1.5rem' 
+                🐾 Mis Eventos
+              </h2>
+              <Link href="/events/create" style={{
+                backgroundColor: '#8B5CF6',
+                color: 'white',
+                padding: '0.5rem 1rem',
+                borderRadius: '6px',
+                textDecoration: 'none',
+                fontSize: '0.8rem',
+                fontWeight: 'bold'
               }}>
-                Eventos donde tu mascota está registrada
-              </p>
+                + Crear Evento
+              </Link>
+            </div>
 
+            <p style={{ 
+              color: '#666', 
+              fontSize: '0.8rem', 
+              marginBottom: '1.5rem' 
+            }}>
+              Eventos donde tu mascota está registrada
+            </p>
+
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+              gap: '1rem'
+            }}>
               {loading ? (
-                <p style={{ color: '#6b7280' }}>Cargando eventos...</p>
+                <p style={{ color: '#666' }}>Cargando eventos...</p>
               ) : myEvents.length > 0 ? (
                 myEvents.map((item) => (
                   <EventCard 
@@ -499,37 +521,44 @@ export default function Home() {
               ) : (
                 <div style={{
                   backgroundColor: 'white',
-                  padding: '2rem',
-                  borderRadius: '12px',
+                  padding: '1.5rem',
+                  borderRadius: '8px',
                   textAlign: 'center',
-                  color: '#6b7280'
+                  color: '#666',
+                  fontSize: '0.85rem'
                 }}>
                   <p>No tienes eventos {activeFilter === 'proximos' ? 'próximos' : 'pasados'}</p>
                 </div>
               )}
             </div>
+          </div>
 
-            {/* Right Column - Other Events */}
-            <div style={{ flex: 1 }}>
-              <h2 style={{ 
-                fontSize: '1.2rem', 
-                fontWeight: 'bold', 
-                color: '#1f2937',
-                marginBottom: '1rem'
-              }}>
-                🏠 Otros Eventos
-              </h2>
+          {/* Otros Eventos Section */}
+          <div>
+            <h2 style={{ 
+              fontSize: '1.1rem', 
+              fontWeight: 'bold', 
+              color: '#333',
+              marginBottom: '1rem'
+            }}>
+              🏠 Otros Eventos
+            </h2>
 
-              <p style={{ 
-                color: '#6b7280', 
-                fontSize: '0.85rem', 
-                marginBottom: '1.5rem' 
-              }}>
-                Eventos disponibles donde puedes registrar tu mascota
-              </p>
+            <p style={{ 
+              color: '#666', 
+              fontSize: '0.8rem', 
+              marginBottom: '1.5rem' 
+            }}>
+              Eventos disponibles donde puedes registrar tu mascota
+            </p>
 
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+              gap: '1rem'
+            }}>
               {loading ? (
-                <p style={{ color: '#6b7280' }}>Cargando eventos...</p>
+                <p style={{ color: '#666' }}>Cargando eventos...</p>
               ) : otherEvents.length > 0 ? (
                 otherEvents.map((event) => (
                   <EventCard 
@@ -541,10 +570,11 @@ export default function Home() {
               ) : (
                 <div style={{
                   backgroundColor: 'white',
-                  padding: '2rem',
-                  borderRadius: '12px',
+                  padding: '1.5rem',
+                  borderRadius: '8px',
                   textAlign: 'center',
-                  color: '#6b7280'
+                  color: '#666',
+                  fontSize: '0.85rem'
                 }}>
                   <p>No hay eventos {activeFilter === 'proximos' ? 'próximos' : 'pasados'} disponibles</p>
                 </div>
